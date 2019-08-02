@@ -12,8 +12,8 @@ export class DashboardComponent implements OnInit {
     name: '',
     main: {
       temp: 0,
-      min_temp: 0,
-      max_temp: 0,
+      temp_min: 0,
+      temp_max: 0,
       pressure: 0,
       humidity: 0,
     },
