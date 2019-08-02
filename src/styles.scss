@@ -1,1 +1,202 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face{
+  src:url(assets/fonts/Montserrat-Light.ttf) format('truetype');
+  font-family:'Montserrat';
+  font-weight:300;
+}
+@font-face{
+  src:url(assets/fonts/Montserrat-Regular.ttf) format('truetype');
+  font-family:'Montserrat';
+  font-weight:400;
+}
+@font-face{
+  src:url(assets/fonts/Montserrat-Bold.ttf) format('truetype');
+  font-family:'Montserrat';
+  font-weight:700;
+}
+@font-face{
+  src:url(assets/fonts/Montserrat-Black.ttf) format('truetype');
+  font-family:'Montserrat';
+  font-weight:900;
+}
+
+.loader{
+  position:fixed;
+  top:0;
+  bottom:0;
+  right:0;
+  left:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(255,255,255,0.8);
+  transition:0.2s;
+  opacity:0;
+  visibility:hidden;
+  z-index:2;
+  &.active{
+    opacity:1;
+    visibility:visible;
+  }
+}
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family: 'Montserrat', sans-serif;
+  min-height:100vh;
+  height:100%;
+
+  background: rgba(29,63,114,1);
+  background: -moz-linear-gradient(top, rgba(29,63,114,1) 0%, rgba(86,152,210,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(29,63,114,1)), color-stop(100%, rgba(86,152,210,1)));
+  background: -webkit-linear-gradient(top, rgba(29,63,114,1) 0%, rgba(86,152,210,1) 100%);
+  background: -o-linear-gradient(top, rgba(29,63,114,1) 0%, rgba(86,152,210,1) 100%);
+  background: -ms-linear-gradient(top, rgba(29,63,114,1) 0%, rgba(86,152,210,1) 100%);
+  background: linear-gradient(to bottom, rgba(29,63,114,1) 0%, rgba(86,152,210,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1d3f72', endColorstr='#5698d2', GradientType=0 );
+  background-repeat:no-repeat;
+  background-size:cover;
+}
+
+.page-content{
+  display:flex;
+  flex-direction:column;
+
+  .container{
+    max-width:1000px;
+    padding:0 20px;
+    margin:0 auto;
+    width:100%;
+  }
+
+  .box{
+    margin:40px auto 10px;
+    background:rgba(255,255,255,0.95);
+    border-radius:20px;
+    box-shadow:0 5px 15px rgba(80,80,80,0.4);
+    padding:20px;
+  }
+}
+
+.row{
+  margin:0 -15px;
+  display:flex;
+  .col{
+    flex:1;
+    padding:0 15px;
+  }
+}
+
+.weatherIco{
+  width:170px;
+}
+
+.weather-icon{
+  max-width:350px;
+  .weather-box{
+    border-radius:15px;
+    background:lighten(#5698d2, 35%);
+    display:inline-block;
+    width:100%;
+    padding:15px;
+    text-align:center;
+
+    .subtitle{
+      margin:10px 0 20px;
+      color:#1d3f72;
+      font-size:20px;
+    }
+  }
+}
+
+.city-box{
+  display:flex;
+  align-items:center;
+  .button{
+    cursor:pointer;
+    &.update{
+      font-size:0;
+      width:38px;
+      height:38px;
+      border-radius:5px;
+      background:#fff;
+      border:1px solid #ccc;
+      background-image:url(assets/images/refresh.svg);
+      background-size:25px 25px;
+      background-position:center;
+      background-repeat:no-repeat;
+    }
+    &:focus{
+      outline:none;
+      box-shadow:none;
+    }
+  }
+  .title-box{
+    padding:0 0 0 3px;
+    position:relative;
+    .city-list{
+      margin:0;
+      font-size:20px;
+      background:#fff;
+      border:1px solid #ccc;
+      border-radius:5px;
+      padding:5px 10px;
+      font-family:'Montserrat',sans-serif;
+      font-weight:bold;
+      cursor:pointer;
+
+      &:focus{
+        outline:none;
+        box-shadow:none;
+      }
+    }
+  }
+}
+
+.temp{
+  font-size: 45px;
+  line-height: 1;
+  margin: 20px 0 10px;
+  color: #5698d2;
+}
+
+.more-info-box{
+  margin-top:25px;
+  background:lighten(#1d3f72, 55%);
+  border-radius:15px;
+  padding:15px;
+
+  .title{
+    margin:0 0 15px;
+    text-align:center;
+  }
+
+  p{
+    margin:0;
+    line-height:1.25;
+  }
+}
+
+
+.copyright{
+  margin:10px auto 40px;
+  color:#fff;
+  text-align:center;
+}
+
+@media screen and (max-width:767px){
+  .row{
+    flex-direction:column;
+  }
+  .weather-icon{
+    max-width:100%;
+    margin-top:20px;
+  }
+  .copyright{
+    font-size:12px;
+  }
+}

@@ -1,0 +1,43 @@
+<div class="page-content">
+  <div class="container">
+    <div class="box">
+      <div class="row">
+        <div class="col">
+          <div class="city-box">
+            <div class="actions-buttons">
+              <button class="button update" (click)="updateWeather(currentCity)">Update</button>
+            </div>
+            <div class="title-box">
+              <select class="city-list" (change)="updateWeather($event.target.value)">
+                <option *ngFor="let city of cityList" [value]="city.name">{{city.name}}</option>
+              </select>
+            </div>
+          </div>
+          <h3 class="temp">{{weatherObj.main.temp}}°</h3>
+          <p><small><b>Min:</b> {{weatherObj.main.temp_min}}°, <b>Max:</b> {{weatherObj.main.temp_max}}°</small></p>
+          <div class="more-info-box">
+            <h4 class="title">More Info</h4>
+            <div class="more-info">
+              <p>
+                <b>Pressure:</b> {{weatherObj.main.pressure}}<br>
+                <b>Humidity:</b> {{weatherObj.main.humidity}}%<br>
+                <b>Latitude:</b> {{weatherObj.coord.lat}}<br>
+                <b>Longitude:</b> {{weatherObj.coord.lon}}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col weather-icon">
+          <div class="weather-box">
+            <h4 class="subtitle">{{weatherObj.weather[0].main}}</h4>
+            <img [src]="'assets/images/icons/'+weatherObj.weather[0].icon+'.svg'" class="weatherIco">
+            <p>{{weatherObj.weather[0].description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="copyright">
+  All rights reserved &copy; - 2019 <a href="https://cristhian.dev/">Cristhian DEV</a>
+</div>
